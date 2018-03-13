@@ -1,0 +1,19 @@
+{
+  "name": "omserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thgfrzm/omserver.git"
+  },
+  "author": "thgfrzm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thgfrzm/omserver/issues"
+  },
+  "homepage": "https://github.com/thgfrzm/omserver#readme"
+}
