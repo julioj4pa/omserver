@@ -8,11 +8,14 @@ var mongoConnection = function(){
   return connection;
 }
 
-module.exports = function(){ return mongoConnection() }
+module.exports = function(){ return mongoConnection }
 
 /*
 NOTA! Por questões de compatibilidade e pressa, foi realizado downgrade
 da versão do mongodb da v. "^3.0.5" para "^2.2.29".
 
-Problema com a função 'open'
+Problema com a função 'open'.
+
 */
+
+// TODO fazer upgrade da versão e atualizar código
