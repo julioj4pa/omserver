@@ -18,9 +18,11 @@ module.exports.insert = function(application, request, response){
   }
 
   ProvidersDAO.insert(response, provider);
-}
+};
 
 /*
+  /opt/sublime_text/sublime_text %F
+
   {
     "name": "Nicolas Maraval Medalhas",
     "responsible": "Nicolas Maraval",
@@ -36,11 +38,11 @@ module.exports.get = function(application, request, response){
   var ProvidersDAO = new application.app.models.ProvidersDAO(connection);
   var id = request.params.id;
   ProvidersDAO.get(response, id);
-}
+};
 
 module.exports.remove = function(application, request, response){
   var connection = application.config.dbConnection;
   var ProvidersDAO = new application.app.models.ProvidersDAO(connection);
   var id = request.params.id;
   ProvidersDAO.remove(response, id);
-}
+};

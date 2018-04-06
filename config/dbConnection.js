@@ -6,9 +6,9 @@ var mongoConnection = function(){
   var options = {};
   var connection = new mongo.Db(databaseName, serverInstance, options);
   return connection;
-}
+};
 
-module.exports = function(){ return mongoConnection }
+module.exports = function(){ return mongoConnection; };
 
 /*
 NOTA! Por questões de compatibilidade e pressa, foi realizado downgrade

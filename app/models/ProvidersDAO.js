@@ -8,6 +8,7 @@ ProvidersDAO.prototype.insert = function(response, provider){
   this._connection.open(function(err, mongoclient){
     mongoclient.collection('providers', function(err, collection){
       collection.insert(provider, function(err, records){
+        console.log(records);
         if(err){
           response.json({message: 'erro ao inserir dados'});
         } else {
@@ -19,7 +20,7 @@ ProvidersDAO.prototype.insert = function(response, provider){
       });
     });
   });
-}
+};
 
 ProvidersDAO.prototype.get = function(response, id){
   if(id !== undefined){
@@ -37,7 +38,7 @@ ProvidersDAO.prototype.get = function(response, id){
       });
     });
   });
-}
+};
 
 ProvidersDAO.prototype.remove = function(response, id){
   id = {_id: objectId(id)};
@@ -53,8 +54,8 @@ ProvidersDAO.prototype.remove = function(response, id){
       });
     });
   });
-}
+};
 
 module.exports = function(){
   return ProvidersDAO;
-}
+};

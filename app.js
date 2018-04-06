@@ -1,2 +1,5 @@
 var app = require('./config/server');
-app.listen(3000, function(){ console.log('::(omserver) Express server ON!') });
+var server = app.listen(3000, function(){
+  console.log('::(omserver) Express server ON!');
+  console.log('::(omserver) Ready on port %d', server.address().port);
+});

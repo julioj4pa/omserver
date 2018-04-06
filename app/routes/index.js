@@ -13,4 +13,4 @@ module.exports = function(application){
   //   application.app.controllers.index.home(application, req, res);
   // });
 
-}
+};

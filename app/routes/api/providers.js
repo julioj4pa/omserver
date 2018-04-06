@@ -20,4 +20,4 @@ module.exports = function(application){
       .remove(application, request, response);
   });
 
-}
+};
