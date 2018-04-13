@@ -1,40 +1,58 @@
+
+Dockerizing a Node.js web app
+
+  https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
+
+  configure a Dockerfile
+  configure .dockerignore file
+  build image
+    docker build -t <username>/node_web_app
+  list images
+    docker images
+  run image
+    docker run -p 3000:3000 -d <username>/node_web_app
+  run bash inside docker container (get containerId using 'docker ps')
+    docker exec -it <containerId> /bin/bash
+
+
+
 HTTP status codes
 
-200 OK
-Response to a successful GET, PUT, PATCH or DELETE. Can also be used for a POST that doesn't result in a creation.
+  200 OK
+  Response to a successful GET, PUT, PATCH or DELETE. Can also be used for a POST that doesn't result in a creation.
 
-201 Created
-Response to a POST that results in a creation. Should be combined with a Location header pointing to the location of the new resource
+  201 Created
+  Response to a POST that results in a creation. Should be combined with a Location header pointing to the location of the new resource
 
-204 No_Content
-Response to a successful request that won't be returning a body (like a DELETE request)
+  204 No_Content
+  Response to a successful request that won't be returning a body (like a DELETE request)
 
-304 Not_Modified
-Used when HTTP caching headers are in play
+  304 Not_Modified
+  Used when HTTP caching headers are in play
 
-400 Bad_Request
-The request is malformed, such as if the body does not parse
+  400 Bad_Request
+  The request is malformed, such as if the body does not parse
 
-401 Unauthorized
-When no or invalid authentication details are provided. Also useful to trigger an auth popup if the API is used from a browser
+  401 Unauthorized
+  When no or invalid authentication details are provided. Also useful to trigger an auth popup if the API is used from a browser
 
-403 Forbidden
-When authentication succeeded but authenticated user doesn't have access to the resource
+  403 Forbidden
+  When authentication succeeded but authenticated user doesn't have access to the resource
 
-404 Not_Found
-When a non-existent resource is requested
+  404 Not_Found
+  When a non-existent resource is requested
 
-405 Method_Not_Allowed
-When an HTTP method is being requested that isn't allowed for the authenticated user
+  405 Method_Not_Allowed
+  When an HTTP method is being requested that isn't allowed for the authenticated user
 
-410 Gone
-Indicates that the resource at this end point is no longer available. Useful as a blanket response for old API versions
+  410 Gone
+  Indicates that the resource at this end point is no longer available. Useful as a blanket response for old API versions
 
-415 Unsupported_Media_Type
-If incorrect content type was provided as part of the request
+  415 Unsupported_Media_Type
+  If incorrect content type was provided as part of the request
 
-422 Unprocessable_Entity
-Used for validation errors
+  422 Unprocessable_Entity
+  Used for validation errors
 
-429 Too_Many_Requests
-When a request is rejected due to rate limiting
+  429 Too_Many_Requests
+  When a request is rejected due to rate limiting
