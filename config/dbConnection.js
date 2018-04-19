@@ -1,7 +1,7 @@
 var mongo = require('mongodb');
 
 var mongoConnection = function(){
-  var databaseName = 'omdb';
+  var databaseName = 'omdatabase';
   var serverInstance = new mongo.Server('localhost', 27017, {});
   var options = {};
   var connection = new mongo.Db(databaseName, serverInstance, options);
