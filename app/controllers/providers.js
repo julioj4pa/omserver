@@ -1,6 +1,5 @@
 module.exports.insert = function(application, request, response){
-  var connection = application.config.dbConnection;
-  var ProvidersDAO = new application.app.models.ProvidersDAO(connection);
+  var ProvidersDAO = new application.app.models.ProvidersDAO();
   var provider = request.body;
 
   request.assert('name', 'Preencher nome').notEmpty();
@@ -10,7 +9,7 @@ module.exports.insert = function(application, request, response){
   request.assert('cellphone', 'Preencher celular').notEmpty();
 
   var errors = request.validationErrors();
-  console.log(provider);
+  // console.log(provider);
 
   if(errors.length > 0){
     response.render('index', {validation: errors, provider: provider});

@@ -1,25 +1,47 @@
+var MongoClient = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectId;
 
-function ProvidersDAO(connection){
-  this._connection = connection();
+function ProvidersDAO(){
+
 }
 
 ProvidersDAO.prototype.insert = function(response, provider){
-  this._connection.open(function(err, mongoclient){
-    mongoclient.collection('providers', function(err, collection){
-      collection.insert(provider, function(err, records){
-        console.log(records);
-        if(err){
-          response.json({message: 'erro ao inserir dados'});
-        } else {
-          response.status(200).json({
-            message: 'fornecedor cadastrado com sucesso'
-          });
-        }
-        mongoclient.close();
+  console.log('::ProvidersDAO.insert()');
+  MongoClient.connect('mongodb://mongodb:27017', function(err, client){
+    console.log('::MongoClient connected');
+    if(err) throw err;
+    // MongoNetworkError: failed to connect to server [localhost:27017]
+    // on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+
+    console.log('::no errors');
+    var db = client.db('omdatabase');
+    db.collection('providers').insert(provider, function(findErr, records){
+      if(findErr) response.json({message: 'erro ao inserir dados'});
+      console.log('::records');
+      console.log(records);
+      response.status(200).json({
+        message: 'fornecedor cadastrado com sucesso'
       });
+      client.close();
     });
   });
+
+
+  // this._connection.open(function(err, mongoclient){
+  //   mongoclient.collection('providers', function(err, collection){
+  //     collection.insert(provider, function(err, records){
+  //       console.log(records);
+  //       if(err){
+  //         response.json({message: 'erro ao inserir dados'});
+  //       } else {
+  //         response.status(200).json({
+  //           message: 'fornecedor cadastrado com sucesso'
+  //         });
+  //       }
+  //       mongoclient.close();
+  //     });
+  //   });
+  // });
 };
 
 ProvidersDAO.prototype.get = function(response, id){
