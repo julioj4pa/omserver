@@ -10,7 +10,7 @@ services:
     depends_on:
       - mongodb
   mongodb:
-    image: bitnami/mongodb:latest
+    image: mongo:3.6.4-jessie
     ports: [
       "27017:27017"
     ]
