@@ -15,4 +15,4 @@ EXPOSE 3000
 
 # Run when the container launches
 # RUN npm start
-CMD [ "npm", "start"]
+CMD [ "npm", "start", "mongodb"]
