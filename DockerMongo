@@ -1,0 +1,9 @@
+FROM bitnami/mongodb:latest
+
+MAINTAINER 'Thiago Ferezim <thiagoferezim@gmail.com>'
+
+WORKDIR /omserver
+
+EXPOSE 27017
+
+CMD ["mongodb"]
