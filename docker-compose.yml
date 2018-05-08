@@ -1,7 +1,7 @@
 version: "2"
 services:
   omservice:
-    build: .
+    build: .DockerNPM
     volumes:
       - ./:/app
     ports: [
@@ -10,7 +10,7 @@ services:
     depends_on:
       - mongodb
   mongodb:
-    image: bitnami/mongodb:latest
+    build: .DockerMongo
     ports: [
       "27017:27017"
     ]
